@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>properties.db</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="cat-easter-egg" aria-hidden="true"></div>
+
+    <div id="piano-easter-egg" aria-hidden="true">
+      <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="archival piano sketch">
+        <g stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 130 L145 130 L200 92 L208 62 L198 45 L150 44 L111 52 L63 69 L28 92 Z"/>
+          <path d="M63 69 L145 68 L183 60"/>
+          <path d="M36 102 L132 101 L168 84"/>
+          <path d="M53 130 L53 145 M87 130 L87 145 M122 130 L122 145 M158 121 L158 145"/>
+          <path d="M75 113 L125 113"/>
+          <path d="M80 113 L80 101 M90 113 L90 101 M100 113 L100 101 M110 113 L110 101 M120 113 L120 101"/>
+        </g>
+      </svg>
+    </div>
+    <div id="piano-toast" aria-live="polite"></div>
+
+    <script src="data/clusters.js"></script>
+    <script src="data/properties.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
