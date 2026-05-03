@@ -56,20 +56,16 @@ pre{white-space:pre-wrap;background:#0c1015;padding:10px;border:1px solid var(--
 .plant-leaf{opacity:.9;transition:opacity .35s}
 .plant-leaf.hidden{opacity:0}
 .plant-process.grown{cursor:pointer}
-.plant-collapse .plant-core{opacity:.18;transition:opacity .7s}
-.plant-question{position:absolute;color:var(--accent-2);opacity:.9;transform:rotate(var(--q-rot));transition:transform 1.1s cubic-bezier(.2,.66,.2,1),opacity 1.4s;transition-delay:var(--q-delay)}
-.plant-question.settle{transform:translateY(var(--q-fall)) rotate(var(--q-rot))}
+.plant-collapse-now .plant-core{opacity:0;transition:opacity .08s linear}
+.plant-question{position:absolute;color:var(--accent-2);opacity:.9;transform:rotate(var(--q-rot));transition:transform 1.6s cubic-bezier(.22,.7,.2,1),opacity 8s linear;transition-delay:var(--q-delay)}
+.plant-question.settle{transform:translate(var(--q-drift,0),var(--q-fall)) rotate(var(--q-rot))}
 .plant-question.fade{opacity:0}
 .shadow-figure{position:relative;width:88px;height:130px;margin:10px 0 0 auto;opacity:.95}
 .shadow-figure svg{width:100%;height:100%}
 .shadow-skeleton{stroke:#050608;fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;transition:transform .45s ease}
 .shadow-skeleton circle{fill:#050608}
-.shadow-skeleton.pose-wave{transform:translate(0,-2px) rotate(-8deg)}
-.shadow-skeleton.pose-open{transform:translate(0,-1px) rotate(1deg) scaleX(1.04)}
-.shadow-skeleton.pose-lunge-left{transform:translate(-5px,2px) rotate(-10deg)}
-.shadow-skeleton.pose-lunge-right{transform:translate(5px,2px) rotate(8deg)}
-.shadow-skeleton.pose-fold{transform:translate(0,4px) scaleY(.92)}
-.shadow-skeleton.pose-reach{transform:translate(0,-7px) scaleY(1.06)}
+.shadow-skeleton path{transition:d .2s ease}
+.plant-question.floating{position:fixed;z-index:95;pointer-events:none}
 .shadow-figure.done{opacity:0;transition:opacity .9s}
 .modal-content.light-leak{position:relative}
 .modal-content.light-leak::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(220px circle at var(--mouse-x) var(--mouse-y),rgba(196,138,85,.15),rgba(111,167,160,.1) 35%,transparent 70%)}
