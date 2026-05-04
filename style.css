@@ -48,3 +48,31 @@ pre{white-space:pre-wrap;background:#0c1015;padding:10px;border:1px solid var(--
 #mute-button {
   display: none !important;
 }
+
+.plant-process{position:relative;height:220px;margin-top:12px;border:1px dashed var(--line);border-radius:6px;overflow:hidden}
+.plant-svg{position:absolute;inset:0;margin:auto;width:200px;height:220px}
+.plant-core path{fill:none;stroke:var(--accent-2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.plant-leaf-base{opacity:.85}
+.plant-leaf{opacity:.9;transition:opacity .35s}
+.plant-leaf.hidden{opacity:0}
+.plant-process.grown{cursor:pointer}
+.plant-collapse-now .plant-core{opacity:0;transition:opacity .08s linear}
+.plant-question{position:absolute;color:var(--accent-2);opacity:.9;transform:rotate(var(--q-rot));transition:transform 1.6s cubic-bezier(.22,.7,.2,1),opacity 8s linear;transition-delay:var(--q-delay)}
+.plant-question.settle{transform:translate(var(--q-drift,0),var(--q-fall)) rotate(var(--q-rot))}
+.plant-question.fade{opacity:0}
+.shadow-figure{position:relative;width:88px;height:130px;margin:10px 0 0 auto;opacity:.95}
+.shadow-figure svg{width:100%;height:100%}
+.shadow-skeleton{stroke:#050608;fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;transition:transform .45s ease}
+.shadow-skeleton circle{fill:#050608}
+.shadow-skeleton path{transition:d .2s ease}
+.plant-question.floating{position:fixed;z-index:95;pointer-events:none}
+.shadow-figure.done{opacity:0;transition:opacity .9s}
+.modal-content.light-leak{position:relative}
+.modal-content.light-leak::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(220px circle at var(--mouse-x) var(--mouse-y),rgba(196,138,85,.15),rgba(111,167,160,.1) 35%,transparent 70%)}
+.modal-content.light-leak.light-active::after{opacity:1}
+.cursor-ghost{position:fixed;left:0;top:0;width:18px;height:24px;pointer-events:none;z-index:90;opacity:.45;mix-blend-mode:screen;transition:opacity .8s}
+.cursor-ghost svg{display:block;width:100%;height:100%;fill:rgba(111,167,160,.9);stroke:rgba(230,224,214,.5);stroke-width:.5}
+.cursor-ghost.fade{opacity:0}
+.memory-focus-image{--focus:.12;filter:blur(calc(4px - var(--focus)*3px)) saturate(calc(.9 + var(--focus)*.35)) contrast(calc(.95 + var(--focus)*.2));transition:filter .25s}
+.memory-focus-caption{color:var(--muted);font-size:12px;margin-top:8px}
+.memory-focus-layers{font-size:12px;color:var(--accent-2);opacity:.8;line-height:1.3}
