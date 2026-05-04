@@ -85,17 +85,21 @@ pre{white-space:pre-wrap;background:#0c1015;padding:10px;border:1px solid var(--
 .microscope-placeholder{display:none;color:#121417;font-size:13px;text-transform:lowercase}
 .microscope-overlay.missing .microscope-placeholder{display:block}
 .microscope-caption{margin:10px 0}
-.light-cache-object{position:relative;overflow:visible;animation:floatBulb 3.2s ease-in-out infinite}
-.light-cache-object:hover{filter:drop-shadow(0 0 12px rgba(230,224,214,.24))}
-.bulb-afterglow{position:absolute;inset:6px;border-radius:50%;background:radial-gradient(circle,rgba(230,224,214,.25),transparent 72%);opacity:0;animation:afterglow 1.5s ease-out forwards;pointer-events:none}
-.light-cache-object.flash{animation:none;box-shadow:0 0 14px rgba(230,224,214,.4)}
-.light-cache-object.disappear{opacity:0;transform:scale(.82);transition:.7s ease}
-.bulb-spark{position:absolute;left:50%;top:50%;width:2px;height:11px;background:rgba(230,224,214,.5);transform:translate(-50%,-50%) rotate(var(--a)) translateY(-20px);animation:sparkOut .85s ease-out forwards}
-@keyframes sparkOut{to{opacity:0;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-40px)}}
-@keyframes floatBulb{50%{transform:translateY(-3px)}}
-@keyframes afterglow{0%{opacity:.9}100%{opacity:0}}
 .gothic-player{cursor:pointer}
 .gothic-player:hover{border-color:var(--accent);box-shadow:0 0 10px var(--glow)}
 .missing-media{display:grid;place-items:center;min-height:68px;color:var(--muted);font-style:italic}
 .missing-label{font-style:italic;color:var(--muted);margin-bottom:8px}
-@media (prefers-reduced-motion:reduce){.light-cache-object{animation:none}.bulb-spark{display:none}}
+
+.light-cache-object{--lamp-glow:0;position:relative;width:92px;margin:12px 0 0 auto;color:var(--muted);cursor:pointer;transform:rotate(-6deg);transition:color .2s ease,transform .3s ease;filter:drop-shadow(0 0 calc(4px + var(--lamp-glow)*22px) rgba(230,224,214,calc(.09 + var(--lamp-glow)*.45)))}
+.light-cache-object::before{content:'';position:absolute;left:18px;right:20px;top:14px;bottom:10px;background:radial-gradient(circle at 50% 42%,rgba(230,224,214,calc(var(--lamp-glow)*.42)),transparent 62%);pointer-events:none}
+.light-cache-object:hover{color:var(--text);transform:rotate(-5deg)}
+.light-cache-object svg{width:100%;height:auto;display:block}
+.light-cache-object.lamp-peak{color:#f1ece2;filter:drop-shadow(0 0 28px rgba(255,247,228,.8));transform:scale(1.05) rotate(-6deg)}
+.lamp-flash-burst{position:fixed;inset:0;background:radial-gradient(circle at var(--fx,50%) var(--fy,50%),rgba(255,255,255,.82),rgba(255,255,255,.58) 34%,rgba(255,255,255,0) 72%);opacity:0;pointer-events:none;z-index:140;transition:opacity .12s ease}
+.lamp-flash-burst.active{opacity:1}
+.lamp-burst-mark{position:fixed;font-size:56px;font-weight:700;line-height:1;color:var(--accent);z-index:145;pointer-events:none;transform:translate(-50%,-50%) rotate(var(--burst-angle));animation:burstMark .55s cubic-bezier(.1,.7,.2,1) forwards}
+@keyframes burstMark{to{transform:translate(-50%,-50%) rotate(var(--burst-angle)) translateY(calc(-1 * var(--burst-distance)));opacity:0}}
+.lamp-store{transition:transform .85s cubic-bezier(.2,.7,.2,1),opacity .85s ease;transform:translate(var(--store-x),var(--store-y)) scale(.08) rotate(-18deg);opacity:0}
+.lamp-inventory-slot{position:fixed;right:16px;top:14px;border:1px solid var(--line);padding:4px 8px;font-size:11px;color:var(--muted);background:rgba(10,13,17,.85);z-index:130;opacity:.95;transition:opacity .4s ease}
+.lamp-inventory-slot.hide{opacity:0}
+@media (prefers-reduced-motion:reduce){.lamp-burst-mark{animation-duration:.3s}.lamp-store{transition-duration:.3s}}
